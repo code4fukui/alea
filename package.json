@@ -29,5 +29,6 @@
       "safari": [ 5.1 ]
     }
   },
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }

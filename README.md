@@ -10,28 +10,32 @@ JavaScript's Math.random() is fast, but has problems. First, it isn't seedable, 
 ```bash
 npm install alea
 ```
+Or
+```js
+import Alea from 'https://code4fukui.github.io/alea/alea.js'
+```
 
 ## Usage
 ```js
-var Alea = require('alea')
+import Alea from 'alea'
 
-var prng = new Alea() // add an optional seed param
+const prng = new Alea() // add an optional seed param
 
-var nextRandnum = prng() // just call the return value of Alea
+const nextRandnum = prng() // just call the return value of Alea
 ```
 
 ## Additions
 
 Also adds the ability to sync up two Alea PRNGs via the importState and exportState methods.
 ```js
-var prng1 = new Alea(200)
+const prng1 = new Alea(200)
 
 prng1()
 prng1()
 
 // after generating a few random numbers, we will initialize a new PRNG
 
-var prng2 = Alea.importState(prng1.exportState())
+const prng2 = Alea.importState(prng1.exportState())
 
 // this should echo true, true, true
 console.log(prng2() == prng1())

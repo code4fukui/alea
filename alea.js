@@ -6,7 +6,7 @@
   } else {
       root.Alea = factory();
   }
-}(this, function () {
+}(globalThis, function () {
 
   'use strict';
 
@@ -108,3 +108,5 @@
     return mash;
   }
 }));
+
+export default globalThis.Alea;

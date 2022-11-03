@@ -1,7 +1,5 @@
-var test = require('tape')
-var Alea = require('./alea')
-
-'use strict'
+import test from 'tape'
+import Alea from './alea.js'
 
 test("make sure two seeded values are the same", function(t){
 
