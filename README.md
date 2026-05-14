@@ -1,10 +1,12 @@
 # Alea
 
-A simple copy-and-paste implementation of Johannes Baagøe's Alea PRNG
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
 
-Mostly packaged so I can easily include it in my projeccts. Nothing more
+A simple copy-and-paste implementation of Johannes Baagøe's Alea PRNG.
 
-JavaScript's Math.random() is fast, but has problems. First, it isn't seedable, second, its randomness leaves a bit to be desired. [Johannes Baagøe](http://baagoe.org/) has done some great work in trying to find a more modern PRNG algorithm that performs well on JavaScript, and Alea seems to be the one that has come out ahead ([benchmarks](http://jsperf.com/prng-comparison)).
+## Features
+- Provides a more modern and performant pseudo-random number generator (PRNG) than the built-in `Math.random()` in JavaScript.
+- Allows synchronizing the state of two Alea PRNGs via the `importState` and `exportState` methods.
 
 ## Installation
 ```bash
@@ -24,9 +26,7 @@ const prng = new Alea() // add an optional seed param
 const nextRandnum = prng() // just call the return value of Alea
 ```
 
-## Additions
-
-Also adds the ability to sync up two Alea PRNGs via the importState and exportState methods.
+## Synchronization
 ```js
 const prng1 = new Alea(200)
 
@@ -43,9 +43,7 @@ console.log(prng2() == prng1())
 console.log(prng2() == prng1())
 ```
 
-The theory behind this is that while a server is running a simulation (for example, a game) and clients connect to the server, each client will run its own simulation without having to depend 100% on the server for every update of the simulation state. By importing the current generator state from the server, a client can join in at any time and have an accurate simulation fully in sync with the server.
+The synchronization feature allows clients to join a simulation (e.g., a game) running on a server and have their local simulation fully in sync with the server, without depending entirely on the server for every update.
 
-## Acknowledgements
-
-Everything in this module was made by Johannes Baagøe. I just wanted this in npm.
-Read more on his [homepage](http://baagoe.org/).
+## License
+MIT License — see [LICENSE](LICENSE).
